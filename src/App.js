@@ -4,9 +4,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 function App() {
-  const [input, setInput] = useState([
-   "Hotel Guidelines"
-  ])
+  const [input, setInput] = useState([ ])
   const [output, setOutput] = useState('')
 
   const fetchApi = async (url, params, myResolve, myReject) => {
@@ -48,9 +46,9 @@ function App() {
     let parseText = ''
     let translateData = {}
     try {
-      parseText = JSON.parse(input)
+      parseText = JSON.parse(textArray)
     } catch (err) {
-      parseText = input
+      parseText = textArray
     }
 
     if (typeof parseText === 'string') {
@@ -170,7 +168,7 @@ function App() {
           </li>
         ))}
       </ul>
-      <textarea value={input} onChange={e => setInput(e.target.value)} />
+      <textarea value={textArray} onChange={e => setInput(e.target.value)} />
       <input type="button" value="Translate" onClick={onClick} />
       <div
         style={{
